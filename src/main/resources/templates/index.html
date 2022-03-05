@@ -1,0 +1,18 @@
+<html xmlns:th="https://thymeleaf.org">
+<h1>Product Service</h1>
+<a href="createproduct">Add Product</a>
+<br />
+<br />
+<table>
+	<tr>
+		<th><h5>name</h5></th>
+		<th><h5>price</h5></th>
+	</tr>
+	<tr th:each="product: ${products}">
+		<td th:utext="${product.name}"></td>
+		<td th:utext="${product.price}"></td>
+		<td><a th:href="@{/updateproduct/{id}(id = ${product.id})}">Edit</a></td>
+		<td><a th:href="@{/deleteproduct/{id}(id = ${product.id})}">Delete</a></td>
+	</tr>
+</table>
+</html>
